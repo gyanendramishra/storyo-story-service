@@ -1,0 +1,19 @@
+import "google/protobuf/empty.proto";
+syntax = "proto3";
+package story;
+
+service StoryRpcService {
+  rpc GetStoryById(StoryById) returns (Story) {};
+  rpc GetAllStories(google.protobuf.Empty) returns (StoryList) {};
+}
+message StoryById {
+  string id = 1;
+}
+
+message StoryList {
+  repeated Story stories = 1;
+}
+message Story {
+  string id = 1;
+  string title = 2;
+}
